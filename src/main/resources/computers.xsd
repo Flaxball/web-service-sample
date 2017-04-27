@@ -1,0 +1,37 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://acari.io/"
+           targetNamespace="http://spring.io/guides/gs-producing-web-service" elementFormDefault="qualified"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://acari.io/ ">
+
+    <xs:element name="getComputerRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getComputerResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="computer" type="tns:computer"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="computer">
+        <xs:sequence>
+            <xs:element name="model" type="xs:string"/>
+            <xs:element name="ram" type="xs:int"/>
+            <xs:element name="make" type="xs:string"/>
+            <xs:element name="cores" type="tns:cores"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="cores">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="TWO"/>
+            <xs:enumeration value="FOUR"/>
+            <xs:enumeration value="EIGHT"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>
