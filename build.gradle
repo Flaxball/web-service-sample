@@ -72,7 +72,7 @@ dependencies {
 }
 
 jar {
-    baseName = 'gs-producing-web-service'
+    baseName = 'web-service-sample'
     version =  '0.1.0'
     from genJaxb.classesDir
 }
