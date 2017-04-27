@@ -1,21 +1,21 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://acari.io/simple/web-service"
            targetNamespace="http://acari.io/simple/web-service" elementFormDefault="qualified">
 
-    <xs:element name="getComputerRequest">
+    <xs:element name="getAllComputerRequest">
+        <xs:complexType>
+            <xs:sequence/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getAllComputerResponse">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="name" type="xs:string"/>
+                <xs:element maxOccurs="unbounded" name="computer" type="tns:computer"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
 
-    <xs:element name="getComputerResponse">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element name="computer" type="tns:computer"/>
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
+
 
     <xs:complexType name="computer">
         <xs:sequence>
