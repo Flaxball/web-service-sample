@@ -7,7 +7,6 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @Component
@@ -25,10 +24,12 @@ public class ComputerRepository {
         modelToComputer.put(bladePro.getModel(),bladePro);
         Computer macPro = buildComputer(Cores.EIGHT, 16, "Apple", "Macbook Pro");
         modelToComputer.put(macPro.getModel(),macPro);
+        Computer macAir = buildComputer(Cores.FOUR, 8, "Apple", "Macbook Air");
+        modelToComputer.put(macAir.getModel(),macAir);
     }
 
 
-    public Collection<Computer> getAllComputers(){
+    Collection<Computer> getAllComputers(){
         return modelToComputer.values();
     }
 

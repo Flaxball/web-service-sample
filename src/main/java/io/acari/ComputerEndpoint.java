@@ -10,7 +10,7 @@ import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
 @Endpoint
 public class ComputerEndpoint {
-    public static final String SERVICE_ENDPOINT = "http://acari.io/simple/web-service";
+    static final String SERVICE_ENDPOINT = "http://acari.io/simple/web-service";
     private ComputerRepository computerRepository;
 
     @Autowired

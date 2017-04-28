@@ -15,19 +15,22 @@ import org.springframework.xml.xsd.XsdSchema;
 @EnableWs
 @Configuration
 public class WebServiceConfig extends WsConfigurerAdapter {
+
+    private static final String COMPUTER_SERVICE = "/computer-service";
+
     @Bean
     public ServletRegistrationBean messageDispatcherServlet(ApplicationContext applicationContext){
         MessageDispatcherServlet servlet = new MessageDispatcherServlet();
         servlet.setApplicationContext(applicationContext);
         servlet.setTransformWsdlLocations(true);
-        return new ServletRegistrationBean(servlet,"/computer-service");
+        return new ServletRegistrationBean(servlet, COMPUTER_SERVICE + "/*");
     }
 
     @Bean(name = "computers")
     public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema computersSchema){
         DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
         wsdl11Definition.setPortTypeName("ComputersPort");
-        wsdl11Definition.setLocationUri("/computers-service");
+        wsdl11Definition.setLocationUri(COMPUTER_SERVICE);
         wsdl11Definition.setTargetNamespace(ComputerEndpoint.SERVICE_ENDPOINT);
         wsdl11Definition.setSchema(computersSchema);
         return wsdl11Definition;
