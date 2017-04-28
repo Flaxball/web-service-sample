@@ -35,8 +35,8 @@ public class ComputerRepository {
 
     private Computer buildComputer(Cores cores, int ram, String make, String model){
         Computer computer = new Computer();
-        computer.setMake(model);
-        computer.setModel(make);
+        computer.setMake(make);
+        computer.setModel(model);
         computer.setRam(ram);
         computer.setCores(cores);
         return computer;
