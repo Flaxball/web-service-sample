@@ -8,6 +8,8 @@ import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
+import java.util.Objects;
+
 @Endpoint
 public class ComputerEndpoint {
     static final String SERVICE_ENDPOINT = "http://acari.io/simple/web-service";
@@ -21,6 +23,7 @@ public class ComputerEndpoint {
     @ResponsePayload
     @PayloadRoot(namespace = SERVICE_ENDPOINT, localPart = "getAllComputerRequest")
     public GetAllComputerResponse getAllComputerResponse(@RequestPayload GetAllComputerRequest getAllComputerRequest){
+        Objects.requireNonNull(getAllComputerRequest, "Request cannot be null");
         GetAllComputerResponse getAllComputerResponse = new GetAllComputerResponse();
         getAllComputerResponse.getComputer().addAll(computerRepository.getAllComputers());
         return getAllComputerResponse;

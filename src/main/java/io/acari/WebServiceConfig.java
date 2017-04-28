@@ -16,7 +16,7 @@ import org.springframework.xml.xsd.XsdSchema;
 @Configuration
 public class WebServiceConfig extends WsConfigurerAdapter {
 
-    private static final String COMPUTER_SERVICE = "/computer-service";
+    public static final String COMPUTER_SERVICE = "/computer-service";
 
     @Bean
     public ServletRegistrationBean messageDispatcherServlet(ApplicationContext applicationContext){
