@@ -1,0 +1,7 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:web="http://acari.io/simple/web-service">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <web:getAllComputerRequest/>
+   </soapenv:Body>
+</soapenv:Envelope>
