@@ -1,7 +1,9 @@
 package io.acari;
 
-import io.acari.simple.web_service.GetAllComputerRequest;
-import io.acari.simple.web_service.GetAllComputerResponse;
+import io.acari.simple.web_service.AllComputersRequest;
+import io.acari.simple.web_service.AllComputersResponse;
+import io.acari.simple.web_service.ComputersByModelRequest;
+import io.acari.simple.web_service.ComputersByModelResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
@@ -21,11 +23,20 @@ public class ComputerEndpoint {
     }
 
     @ResponsePayload
-    @PayloadRoot(namespace = SERVICE_ENDPOINT, localPart = "getAllComputerRequest")
-    public GetAllComputerResponse getAllComputerResponse(@RequestPayload GetAllComputerRequest getAllComputerRequest){
-        Objects.requireNonNull(getAllComputerRequest, "Request cannot be null");
-        GetAllComputerResponse getAllComputerResponse = new GetAllComputerResponse();
-        getAllComputerResponse.getComputer().addAll(computerRepository.getAllComputers());
-        return getAllComputerResponse;
+    @PayloadRoot(namespace = SERVICE_ENDPOINT, localPart = "allComputersRequest")
+    public AllComputersResponse allComputersRequest(@RequestPayload AllComputersRequest allComputersRequest){
+        Objects.requireNonNull(allComputersRequest, "Request cannot be null");
+        AllComputersResponse AllComputersResponse = new AllComputersResponse();
+        AllComputersResponse.getComputers().addAll(computerRepository.allComputers());
+        return AllComputersResponse;
+    }
+
+    @ResponsePayload
+    @PayloadRoot(namespace = SERVICE_ENDPOINT, localPart = "computersByModelRequest")
+    public ComputersByModelResponse computersByModelRequest(@RequestPayload ComputersByModelRequest computersByModelRequest){
+        Objects.requireNonNull(computersByModelRequest, "Request cannot be null");
+        ComputersByModelResponse computersByModelResponse = new ComputersByModelResponse();
+        computersByModelResponse.getComputers().addAll(computerRepository.computerByModel(computersByModelRequest.getModel()));
+        return computersByModelResponse;
     }
 }

@@ -5,9 +5,7 @@ import io.acari.simple.web_service.Cores;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 @Component
 public class ComputerRepository {
@@ -29,8 +27,14 @@ public class ComputerRepository {
     }
 
 
-    Collection<Computer> getAllComputers(){
+    Collection<Computer> allComputers(){
         return modelToComputer.values();
+    }
+
+    Collection<Computer> computerByModel(String string){
+        Objects.requireNonNull(string, "Model string cannot be null");
+        Optional<Computer> computer = Optional.ofNullable(modelToComputer.get(string));
+        return computer.isPresent() ? Collections.singleton(computer.get()) : Collections.emptySet();
     }
 
     private Computer buildComputer(Cores cores, int ram, String make, String model){

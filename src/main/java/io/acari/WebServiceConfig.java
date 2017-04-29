@@ -12,6 +12,10 @@ import org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition;
 import org.springframework.xml.xsd.SimpleXsdSchema;
 import org.springframework.xml.xsd.XsdSchema;
 
+import java.util.Properties;
+
+import static io.acari.ComputerEndpoint.*;
+
 @EnableWs
 @Configuration
 public class WebServiceConfig extends WsConfigurerAdapter {
@@ -31,8 +35,11 @@ public class WebServiceConfig extends WsConfigurerAdapter {
         DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
         wsdl11Definition.setPortTypeName("ComputersPort");
         wsdl11Definition.setLocationUri(COMPUTER_SERVICE);
-        wsdl11Definition.setTargetNamespace(ComputerEndpoint.SERVICE_ENDPOINT);
+        wsdl11Definition.setTargetNamespace(SERVICE_ENDPOINT);
         wsdl11Definition.setSchema(computersSchema);
+        Properties soapActions = new Properties();
+        soapActions.setProperty("computersByModel", SERVICE_ENDPOINT + "/computersByModel");
+        wsdl11Definition.setSoapActions(soapActions);
         return wsdl11Definition;
     }
 

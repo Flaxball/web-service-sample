@@ -1,7 +1,6 @@
 package io.acari;
 
-import io.acari.simple.web_service.GetAllComputerRequest;
-import io.acari.simple.web_service.GetAllComputerResponse;
+import io.acari.simple.web_service.AllComputersRequest;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,23 +17,23 @@ import static org.assertj.core.api.Java6Assertions.assertThat;
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class WebServiceSampleApplicationTests {
-	Jaxb2Marshaller jaxb2Marshaller = new Jaxb2Marshaller();
+    Jaxb2Marshaller jaxb2Marshaller = new Jaxb2Marshaller();
 
-	@LocalServerPort
+    @LocalServerPort
     private int port = 0;
 
-	@Before
+    @Before
     public void setUp() throws Exception {
-	    jaxb2Marshaller.setPackagesToScan(ClassUtils.getPackageName(GetAllComputerResponse.class));
-	    jaxb2Marshaller.afterPropertiesSet();
+        jaxb2Marshaller.setPackagesToScan(ClassUtils.getPackageName(AllComputersRequest.class));
+        jaxb2Marshaller.afterPropertiesSet();
     }
 
-	@Test
-	public void contextLoads() {
+    @Test
+    public void contextLoads() {
         WebServiceTemplate webServiceTemplate = new WebServiceTemplate(jaxb2Marshaller);
-        GetAllComputerRequest getAllComputerRequest = new GetAllComputerRequest();
+        AllComputersRequest getAllComputerRequest = new AllComputersRequest();
         assertThat(webServiceTemplate.marshalSendAndReceive(
                 "http://localhost:" + port + WebServiceConfig.COMPUTER_SERVICE, getAllComputerRequest)).isNotNull();
-	}
+    }
 
 }
