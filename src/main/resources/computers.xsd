@@ -35,6 +35,7 @@
     <xs:complexType name="computer">
         <xs:sequence>
             <xs:element name="model" type="xs:string"/>
+            <xs:element name="subModel" type="xs:string"/>
             <xs:element name="ram" type="xs:int"/>
             <xs:element name="make" type="xs:string"/>
             <xs:element name="cores" type="tns:cores"/>

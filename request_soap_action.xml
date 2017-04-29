@@ -1,0 +1,8 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://acari.io/simple/web-service">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <web:computersByModelRequest>
+            <web:model>Blade</web:model>
+        </web:computersByModelRequest>
+    </soapenv:Body>
+</soapenv:Envelope>
