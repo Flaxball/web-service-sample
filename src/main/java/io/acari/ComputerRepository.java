@@ -38,8 +38,7 @@ public class ComputerRepository {
 
     Collection<Computer> computerByModel(String string){
         Objects.requireNonNull(string, "Model string cannot be null");
-        Optional<Set<Computer>> computer = Optional.ofNullable(modelToComputer.get(string));
-        return computer.orElseGet(Collections::emptySet);
+        return Optional.ofNullable(modelToComputer.get(string)).orElseGet(Collections::emptySet);
     }
 
     private Computer buildComputer(Cores cores, int ram, String make, String model, String subModel){
