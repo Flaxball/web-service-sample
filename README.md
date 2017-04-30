@@ -13,3 +13,7 @@ Once the repository is on your machine, in order to boot up the server do the fo
         ./gradlew bootRun
     
 Now there is a server running on your `localhost:8400` provided you did not have a process running on port 8400 before you started the server.
+
+To view the WSDL, hit the following endpoint:
+
+    http://localhost:8400/computer-service/computers.wsdl
