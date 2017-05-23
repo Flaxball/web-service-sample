@@ -2,8 +2,8 @@
 
 To run the sample you will need:
  - Internet Connection (At least the first time it is run)
- - [Java 8 runtime](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
- - [Gradle 2.3+ ](https://gradle.org/install)
+ - [Java 8 runtime](http://blog.acari.io/jvm/2017/05/05/Gradle-Install.html)
+ - [Gradle 2.3+ ](http://blog.acari.io/jvm/2017/05/05/Gradle-Install.html)
  
 Once the repository is on your machine, in order to boot up the server do the following.
 
