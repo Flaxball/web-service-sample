@@ -1,5 +1,9 @@
 # Sample Web-Service
 
+### Want to learn how to make command line SOAP calls?
+
+####[Look No further!](http://blog.acari.io/cli/2017/04/28/Command-Line-SOAP.html)
+
 To run the sample you will need:
  - Internet Connection (At least the first time it is run)
  - [Java 8 runtime](http://blog.acari.io/jvm/2017/05/05/Gradle-Install.html)
